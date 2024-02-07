@@ -34,6 +34,7 @@ public class PetClinic {
             case "4" -> petOwnerService.displayAllPetOwners();
             case "5" -> petService.addNewPet();
             case "6" -> petService.displayAllPets();
+            default -> ioService.displayToConsoleNextLine("Command not found");
         }
     }
 }

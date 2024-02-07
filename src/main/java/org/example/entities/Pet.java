@@ -2,6 +2,9 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Pet {
     @Id
@@ -14,6 +17,8 @@ public class Pet {
     @ManyToOne
     @JoinColumn
     private PetOwner petOwner;
+    @OneToMany(mappedBy = "pet")
+    private List<Appointment> appointments = new ArrayList<>();
 
     public Integer getPetId() {
         return petId;
@@ -53,6 +58,14 @@ public class Pet {
 
     public void setPetOwner(PetOwner petOwner) {
         this.petOwner = petOwner;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
     @Override

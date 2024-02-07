@@ -1,5 +1,6 @@
 package org.example.utils;
 
+import org.example.entities.Appointment;
 import org.example.entities.Pet;
 import org.example.entities.PetOwner;
 import org.example.entities.Veterinary;
@@ -27,7 +28,8 @@ public class HibernateUtils {
                     .setProperty(Environment.HIGHLIGHT_SQL, "true")
                     .addAnnotatedClass(Veterinary.class)
                     .addAnnotatedClass(PetOwner.class)
-                    .addAnnotatedClass(Pet.class);
+                    .addAnnotatedClass(Pet.class)
+                    .addAnnotatedClass(Appointment.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
