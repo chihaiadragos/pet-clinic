@@ -13,4 +13,10 @@ public class PetRepository extends Repository<Pet> {
         Query<Pet> query = session.createQuery("select p from Pet p");
         return query.getResultList();
     }
+    public List<Pet> findByOwnerPhoneNumber(String ownerPhoneNumber) {
+        Session session = sessionFactory.openSession();
+        Query<Pet> query = session.createQuery("select p from Pet p where p.petOwner.phoneNumber = :ownerPhoneNumber");
+        query.setParameter("ownerPhoneNumber", ownerPhoneNumber);
+        return query.getResultList();
+    }
 }

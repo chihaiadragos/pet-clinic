@@ -1,13 +1,11 @@
 package org.example;
 
-import org.example.service.IOService;
-import org.example.service.PetOwnerService;
-import org.example.service.PetService;
-import org.example.service.VeterinaryService;
+import org.example.service.*;
 
 public class PetClinic {
     private VeterinaryService veterinaryService = new VeterinaryService();
     private PetOwnerService petOwnerService = new PetOwnerService();
+    private AppointmentService appointmentService = new AppointmentService();
     private PetService petService = new PetService();
     private IOService ioService = new IOService();
 
@@ -34,6 +32,7 @@ public class PetClinic {
             case "4" -> petOwnerService.displayAllPetOwners();
             case "5" -> petService.addNewPet();
             case "6" -> petService.displayAllPets();
+            case "7" -> appointmentService.addNewAppointment();
             default -> ioService.displayToConsoleNextLine("Command not found");
         }
     }

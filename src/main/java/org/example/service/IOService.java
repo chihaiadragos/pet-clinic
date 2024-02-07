@@ -18,6 +18,7 @@ public class IOService {
         displayToConsoleNextLine("4 - Display all pet owners");
         displayToConsoleNextLine("5 - Register a pet");
         displayToConsoleNextLine("6 - Display all pet");
+        displayToConsoleNextLine("7 - Add an appointment");
     }
 
     public String getUserInput() {
@@ -50,6 +51,25 @@ public class IOService {
         for (Pet pet : allPets) {
             System.out.println("Pet name: " + pet.getName() + ", Pet type: " + pet.getAnimalType() + ", Pet collarId: "
                     + pet.getCollarId() + ", Pet owner's name: " + pet.getPetOwner().getFirstName());
+        }
+    }
+    public void displayPetOptions(List<Pet> petList) {
+        System.out.println("[Please select the number of your pet]");
+        for (int index = 0; index < petList.size(); index++) {
+            displayToConsoleNextLine((index + 1)
+                    + " -> "
+                    + petList.get(index).getName());
+        }
+    }
+
+    public void displayVeterinaryOptions(List<Veterinary> veterinaryList) {
+        System.out.println("[Please select the number of your veterinary]");
+        for (int index = 0; index < veterinaryList.size(); index++) {
+            displayToConsoleNextLine((index + 1)
+                    + " -> Dr. "
+                    + veterinaryList.get(index).getFirstName()
+                    + " "
+                    + veterinaryList.get(index).getLastName());
         }
     }
 }
