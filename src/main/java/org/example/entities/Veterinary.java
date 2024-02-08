@@ -9,7 +9,7 @@ import java.util.List;
 public class Veterinary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer veterinaryID;
+    private Integer veterinaryId;
     private String firstName;
     private String lastName;
     @Column(unique = true)
@@ -17,12 +17,12 @@ public class Veterinary {
     @OneToMany(mappedBy = "veterinary")
     private List<Appointment> appointments = new ArrayList<>();
 
-    public Integer getVeterinaryID() {
-        return veterinaryID;
+    public Integer getVeterinaryId() {
+        return veterinaryId;
     }
 
-    public void setVeterinaryID(Integer veterinaryID) {
-        this.veterinaryID = veterinaryID;
+    public void setVeterinaryId(Integer veterinaryId) {
+        this.veterinaryId = veterinaryId;
     }
 
     public String getFirstName() {
