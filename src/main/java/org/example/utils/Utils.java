@@ -1,5 +1,10 @@
 package org.example.utils;
 
+import org.example.exception.InvalidDateTimeException;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Random;
 
 public class Utils {
@@ -17,4 +22,13 @@ public class Utils {
         return stringBuilder.toString();
     }
 
+    public static LocalDateTime convertToDateTime(String appointmentDate, String appointmentTime) throws InvalidDateTimeException {
+        try {
+            LocalDate localDate = LocalDate.parse(appointmentDate);
+            LocalTime localTime = LocalTime.parse(appointmentTime);
+            return LocalDateTime.of(localDate, localTime);
+        } catch (Exception e) {
+            throw new InvalidDateTimeException();
+        }
+    }
 }
